@@ -168,7 +168,7 @@
 
         .problem-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: clamp(20px, 3vw, 40px);
             margin-top: 30px;
         }
@@ -291,16 +291,37 @@
 
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: clamp(20px, 3vw, 30px);
-            margin: 30px 0;
+            grid-template-columns: repeat(3, 1fr);
+            gap: clamp(30px, 4vw, 50px);
+            margin: 50px 0;
+            padding: 0 20px;
         }
 
         .team-member {
             text-align: center;
-            padding: 25px;
-            background: #f8f9fa;
-            border-radius: 16px;
+            padding: clamp(30px, 4vw, 40px);
+            background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+            border-radius: 24px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255,255,255,0.8);
+        }
+
+        .team-member::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #4ECDC4, #45B7D1, #667eea);
+        }
+
+        .team-member:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
         }
 
         .avatar {
@@ -318,25 +339,30 @@
         }
 
         .avatar-image {
-            margin: 0 auto 15px;
+            margin: 0 auto 25px;
             display: flex;
             align-items: center;
             justify-content: center;
+            position: relative;
         }
+
+
 
         .avatar-image img {
-            width: clamp(60px, 8vw, 80px);
-            height: clamp(60px, 8vw, 80px);
+            width: clamp(90px, 10vw, 110px);
+            height: clamp(90px, 10vw, 110px);
             border-radius: 50%;
             object-fit: cover;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            border: 3px solid white;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border: 4px solid white;
             filter: grayscale(100%) contrast(1.2) brightness(1.1);
-            transition: filter 0.3s ease;
+            transition: all 0.4s ease;
         }
 
-        .avatar-image img:hover {
+        .team-member:hover .avatar-image img {
             filter: grayscale(0%) contrast(1) brightness(1);
+            transform: scale(1.05);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.2);
         }
 
         .funding-breakdown {
@@ -423,6 +449,59 @@
             margin-top: 30px;
         }
 
+        .member-info a:hover {
+            background: currentColor;
+            color: white !important;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .milestones-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: clamp(20px, 3vw, 30px);
+            margin-top: 25px;
+        }
+
+        .milestone-card {
+            background: white;
+            color: #2c3e50;
+            padding: clamp(25px, 4vw, 35px);
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border: 2px solid #f1f3f4;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            min-height: clamp(100px, 12vw, 140px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .milestone-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            border-color: #4ECDC4;
+        }
+
+        .milestone-icon {
+            font-size: clamp(24px, 4vw, 32px);
+            margin-bottom: 12px;
+        }
+
+        .milestone-number {
+            font-size: clamp(18px, 3vw, 22px);
+            font-weight: bold;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .milestone-label {
+            font-size: clamp(14px, 2.2vw, 16px);
+            color: #7f8c8d;
+            line-height: 1.3;
+        }
+
         @media (max-width: 768px) {
             .navigation {
                 position: relative;
@@ -456,6 +535,27 @@
 
             .funding-breakdown {
                 grid-template-columns: 1fr;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                margin: 30px 0;
+                padding: 0 10px;
+            }
+
+            .team-member {
+                padding: 25px;
+            }
+
+            .milestones-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .problem-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
             }
         }
 
@@ -676,28 +776,49 @@
                     <div class="avatar-image">
                         <img src="https://media.licdn.com/dms/image/v2/D4E03AQErlzgiYiJsrA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1718668171668?e=1755129600&v=beta&t=GUo6DEvbMLl617b30awybnLgmsdJXnWwLemL1fhwOlg" alt="Luis Huayaney">
                     </div>
-                    <h3>Luis Eduardo Huayaney</h3>
-                    <p><strong>CEO & Co-Founder</strong></p>
-                    <p>Product leader with experience at IBK. Makers Fellowship alumni. Expert in AI product development and Latin American markets. Drives business strategy and execution.</p>
-                    <a href="https://www.linkedin.com/in/luishuayaney/" target="_blank" style="color: #4ECDC4; text-decoration: none; font-size: 14px;">LinkedIn →</a>
+                    <div class="member-info">
+                        <h3 style="margin-bottom: 8px; font-size: clamp(20px, 2.5vw, 24px); color: #2c3e50;">Luis Huayaney</h3>
+                        <div style="background: linear-gradient(135deg, #4ECDC4, #45B7D1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 700; font-size: clamp(14px, 2vw, 16px); margin-bottom: 15px;">CEO & CO-FOUNDER</div>
+                        <p style="font-size: clamp(13px, 1.8vw, 15px); line-height: 1.5; color: #5a6c7d; margin-bottom: 20px;">5+ years product leadership at IBK and Mibanco, building fintech solutions for 2M+ customers. Open Innovation Specialist bridging startups and corporates. Universidad del Pacífico instructor. Makers Fellowship + Perplexity Business Fellow alumni.</p>
+                        <a href="https://www.linkedin.com/in/luishuayaney/" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; color: #4ECDC4; text-decoration: none; font-size: 14px; font-weight: 600; padding: 8px 16px; border: 2px solid #4ECDC4; border-radius: 20px; transition: all 0.3s ease;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                            <span>LinkedIn</span>
+                        </a>
+                    </div>
                 </div>
                 <div class="team-member">
                     <div class="avatar-image">
                         <img src="https://media.licdn.com/dms/image/v2/D4E03AQHmnL_LWIXUyw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1699932651439?e=1755129600&v=beta&t=q8mH0chMubpMoHXpGzb5FPLQSAfGMk5MMRF6CZZ8Dm0" alt="Omar Mendoza">
                     </div>
-                    <h3>Omar Mendoza</h3>
-                    <p><strong>CMO & Co-Founder</strong></p>
-                    <p>7+ years scaling startups through data-driven growth. One of few certified Meta Ads Lead Trainers in LatAm. Led teams managing $100K+ monthly ad spend. Scaled community to 200K+ followers organically in 2 years. Reforge member & Perplexity AI Fellow.</p>
-                    <a href="https://www.linkedin.com/in/omarmendozah/" target="_blank" style="color: #4ECDC4; text-decoration: none; font-size: 14px;">LinkedIn →</a>
+                    <div class="member-info">
+                        <h3 style="margin-bottom: 8px; font-size: clamp(20px, 2.5vw, 24px); color: #2c3e50;">Omar Mendoza</h3>
+                        <div style="background: linear-gradient(135deg, #FF6B6B, #FF8E53); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 700; font-size: clamp(14px, 2vw, 16px); margin-bottom: 15px;">CMO & CO-FOUNDER</div>
+                        <p style="font-size: clamp(13px, 1.8vw, 15px); line-height: 1.5; color: #5a6c7d; margin-bottom: 20px;">7+ years scaling startups through data-driven growth. Certified Meta Ads Lead Trainer in LatAm. Led teams managing $100K+ monthly ad budgets across multiple markets. Scaled community to 200K+ followers organically. Reforge member & Perplexity AI Fellow.</p>
+                        <a href="https://www.linkedin.com/in/omarmendozah/" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; color: #FF6B6B; text-decoration: none; font-size: 14px; font-weight: 600; padding: 8px 16px; border: 2px solid #FF6B6B; border-radius: 20px; transition: all 0.3s ease;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                            <span>LinkedIn</span>
+                        </a>
+                    </div>
                 </div>
                 <div class="team-member">
                     <div class="avatar-image">
                         <img src="https://media.licdn.com/dms/image/v2/D4E03AQHL7yn2Hl-k6g/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1718225542986?e=1755129600&v=beta&t=larJ_urbCv2PR9agoXxD7jF_f0B7x6iwCGMHAUd2PFA" alt="Oscar Rivas">
                     </div>
-                    <h3>Oscar Rivas</h3>
-                    <p><strong>CTO & Co-Founder</strong></p>
-                    <p>6+ years as Growth Engineer. Tech Lead at Domus AI. Built systems processing 100K+ daily emails with 10x booking increases. Expert in Python, data engineering, and scalable automation. Universidad del Pacífico + Makers Fellowship alumni.</p>
-                    <a href="https://www.linkedin.com/in/mrcord/" target="_blank" style="color: #4ECDC4; text-decoration: none; font-size: 14px;">LinkedIn →</a>
+                    <div class="member-info">
+                        <h3 style="margin-bottom: 8px; font-size: clamp(20px, 2.5vw, 24px); color: #2c3e50;">Oscar Rivas</h3>
+                        <div style="background: linear-gradient(135deg, #667eea, #764ba2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 700; font-size: clamp(14px, 2vw, 16px); margin-bottom: 15px;">CTO & CO-FOUNDER</div>
+                        <p style="font-size: clamp(13px, 1.8vw, 15px); line-height: 1.5; color: #5a6c7d; margin-bottom: 20px;">6+ years as Growth Engineer and Tech Lead at Domus AI, former Torrex (ex-Torre). Built high-scale systems with 10x performance improvements. Full-stack developer specializing in data and AI. Makers Fellowship + Growth Rockstar alumni.</p>
+                        <a href="https://www.linkedin.com/in/mrcord/" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; color: #667eea; text-decoration: none; font-size: 14px; font-weight: 600; padding: 8px 16px; border: 2px solid #667eea; border-radius: 20px; transition: all 0.3s ease;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                            <span>LinkedIn</span>
+                        </a>
+                    </div>
                 </div>
             </div>
 
@@ -705,27 +826,23 @@
                 <div>
                     <h3>🏆 Why This Team Wins</h3>
                     <ul>
-                        <li><strong>Proven Scale:</strong> Omar managed $100K+ monthly ad budgets; Oscar built 100K+ daily email systems</li>
-                        <li><strong>AI + Growth Expertise:</strong> Perplexity AI Fellow + Growth Engineer with automation mastery</li>
-                        <li><strong>Latin America Focus:</strong> Certified Meta trainer for LatAm + deep regional market understanding</li>
-                        <li><strong>Elite Networks:</strong> Reforge member + Makers Fellowship alumni + established industry connections</li>
-                        <li><strong>Organic + Paid Mastery:</strong> 200K community growth + performance marketing at scale</li>
+                        <li><strong>Corporate-Startup Bridge:</strong> Fintech experience serving 2M+ customers + Open Innovation leadership</li>
+                        <li><strong>Proven Scale:</strong> $100K+ monthly ad budget management + 100K+ daily system processing with 10x improvements</li>
+                        <li><strong>Elite Networks:</strong> Ex-Torre + Perplexity Fellow + Makers Fellowship + Growth Rockstar credentials</li>
+                        <li><strong>LatAm Expertise:</strong> Certified Meta trainer + cultural insights + 200K organic community growth</li>
                     </ul>
                 </div>
                 <div>
-                    <h3>🎯 Growth Plan</h3>
+                    <h3>🎯 Next Hires (Months 9+)</h3>
                     <ul>
-                        <li>Senior AI Engineer (Month 6) - Enhance ML capabilities</li>
-                        <li>Operations Manager (Month 9) - Scale fulfillment</li>
-                        <li>Customer Success Lead (Month 12) - Drive retention</li>
-                        <li>Marketing Specialist (Month 15) - Expand reach</li>
-                        <li>Regional Manager (Month 18) - International expansion</li>
+                        <li><strong>Full Stack Intern</strong> - Support development and testing</li>
+                        <li><strong>AI Engineer</strong> - Enhance ML capabilities and personalization</li>
                     </ul>
                 </div>
             </div>
 
             <div class="highlight-box">
-                <strong>Unfair Advantage:</strong> This is one of the few teams in Latin America that combines certified Meta advertising expertise ($100K+ budgets), proven growth engineering (10x booking increases), and direct AI industry connections (Perplexity Fellow). We don't just understand the market - we've already proven we can scale in it.
+                <strong>Unfair Advantage:</strong> Only LatAm team combining major bank product leadership, certified Meta mastery, Torre engineering talent, and direct AI connections. We've already proven we can build, market, and scale.
             </div>
         </div>
 
@@ -779,14 +896,6 @@
                         <div style="font-size: 18px;">for 7% equity</div>
                         <div style="font-size: 16px; margin-top: 10px;">$2.8M valuation</div>
                     </div>
-                    
-                    <h3 style="margin-top: 30px;">🎯 18-Month Milestones</h3>
-                    <ul>
-                        <li>1,000+ monthly orders</li>
-                        <li>Break-even operations</li>
-                        <li>Series A readiness</li>
-                        <li>Expansion market validation</li>
-                    </ul>
                 </div>
                 
                 <div class="funding-right">
@@ -804,6 +913,32 @@
                             <span>Team Expansion</span>
                             <strong>20% ($40K)</strong>
                         </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 40px;">
+                <h3 style="text-align: center; margin-bottom: 25px;">🎯 18-Month Milestones</h3>
+                <div class="milestones-grid">
+                    <div class="milestone-card">
+                        <div class="milestone-icon">📈</div>
+                        <div class="milestone-number">1,000+</div>
+                        <div class="milestone-label">Monthly Orders</div>
+                    </div>
+                    <div class="milestone-card">
+                        <div class="milestone-icon">💰</div>
+                        <div class="milestone-number">Break-even</div>
+                        <div class="milestone-label">Operations</div>
+                    </div>
+                    <div class="milestone-card">
+                        <div class="milestone-icon">🚀</div>
+                        <div class="milestone-number">Series A</div>
+                        <div class="milestone-label">Readiness</div>
+                    </div>
+                    <div class="milestone-card">
+                        <div class="milestone-icon">🌎</div>
+                        <div class="milestone-number">Expansion</div>
+                        <div class="milestone-label">Market Validation</div>
                     </div>
                 </div>
             </div>
