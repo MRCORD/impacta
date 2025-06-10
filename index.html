@@ -8,7 +8,7 @@
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
-            padding: 40px;
+            padding: 20px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             display: flex;
@@ -19,12 +19,13 @@
         .slide {
             background: white;
             border-radius: 20px;
-            padding: 60px;
+            padding: clamp(30px, 5vw, 60px);
             box-shadow: 0 20px 60px rgba(0,0,0,0.1);
-            max-width: 1000px;
+            max-width: 1200px;
             width: 100%;
             position: relative;
             overflow: hidden;
+            margin: 20px;
         }
         
         .slide::before {
@@ -39,49 +40,56 @@
         
         .header {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: clamp(30px, 4vw, 50px);
         }
         
         .logo {
-            font-size: 36px;
+            font-size: clamp(28px, 4vw, 36px);
             font-weight: bold;
             color: #2c3e50;
             margin-bottom: 10px;
         }
         
         .tagline {
-            font-size: 18px;
+            font-size: clamp(14px, 2.5vw, 18px);
             color: #7f8c8d;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
+            line-height: 1.4;
         }
         
         .title {
-            font-size: 42px;
+            font-size: clamp(32px, 5vw, 42px);
             font-weight: bold;
             color: #2c3e50;
             margin-bottom: 10px;
+            line-height: 1.2;
         }
         
         .subtitle {
-            font-size: 20px;
+            font-size: clamp(16px, 2.5vw, 20px);
             color: #7f8c8d;
         }
         
         .main-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin-bottom: 40px;
+            gap: clamp(20px, 3vw, 40px);
+            margin-bottom: clamp(30px, 4vw, 40px);
+            align-items: stretch;
         }
         
         .funding-box {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 40px;
+            padding: clamp(25px, 4vw, 40px);
             border-radius: 15px;
             text-align: center;
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 250px;
         }
         
         .funding-box::before {
@@ -96,7 +104,7 @@
         }
         
         .funding-amount {
-            font-size: 48px;
+            font-size: clamp(36px, 6vw, 48px);
             font-weight: bold;
             margin-bottom: 15px;
             position: relative;
@@ -104,7 +112,7 @@
         }
         
         .funding-label {
-            font-size: 18px;
+            font-size: clamp(16px, 2.5vw, 18px);
             opacity: 0.9;
             margin-bottom: 20px;
             position: relative;
@@ -112,36 +120,54 @@
         }
         
         .valuation-range {
-            font-size: 20px;
+            font-size: clamp(16px, 2.5vw, 20px);
             font-weight: 600;
             position: relative;
             z-index: 1;
+            line-height: 1.4;
         }
         
         .use-of-funds {
             background: #f8f9fa;
-            padding: 30px;
+            padding: clamp(20px, 3vw, 30px);
             border-radius: 15px;
             border-left: 5px solid #667eea;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 250px;
         }
         
         .use-title {
-            font-size: 24px;
+            font-size: clamp(20px, 3vw, 24px);
             font-weight: bold;
             color: #2c3e50;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             text-align: center;
+            flex-shrink: 0;
+        }
+        
+        .fund-items-container {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
         }
         
         .fund-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
-            padding: 15px;
+            margin-bottom: 15px;
+            padding: clamp(12px, 2vw, 15px);
             background: white;
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            min-height: 50px;
+        }
+        
+        .fund-item:last-child {
+            margin-bottom: 0;
         }
         
         .fund-category {
@@ -149,106 +175,144 @@
             align-items: center;
             font-weight: 600;
             color: #2c3e50;
+            font-size: clamp(14px, 2vw, 16px);
+            flex: 1;
         }
         
         .fund-icon {
             margin-right: 12px;
-            font-size: 20px;
+            font-size: clamp(16px, 2.5vw, 20px);
+            flex-shrink: 0;
         }
         
         .fund-amount {
             font-weight: bold;
             color: #667eea;
-            font-size: 18px;
+            font-size: clamp(16px, 2.5vw, 18px);
+            flex-shrink: 0;
         }
         
         .fund-percentage {
-            font-size: 14px;
+            font-size: clamp(12px, 2vw, 14px);
             color: #7f8c8d;
             margin-left: 8px;
         }
         
         .timeline {
             background: #e8f4f8;
-            padding: 25px;
+            padding: clamp(20px, 3vw, 25px);
             border-radius: 15px;
-            margin-top: 30px;
+            margin-top: clamp(20px, 3vw, 30px);
             text-align: center;
         }
         
         .timeline-title {
-            font-size: 20px;
+            font-size: clamp(18px, 2.5vw, 20px);
             font-weight: bold;
             color: #2c3e50;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
         
         .milestones {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: clamp(15px, 2vw, 20px);
+            max-width: 100%;
         }
         
         .milestone {
             background: white;
-            padding: 15px 20px;
+            padding: clamp(12px, 2vw, 15px) clamp(15px, 2.5vw, 20px);
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             text-align: center;
-            min-width: 140px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 80px;
         }
         
         .milestone-month {
-            font-size: 14px;
+            font-size: clamp(12px, 2vw, 14px);
             color: #667eea;
             font-weight: bold;
             margin-bottom: 8px;
         }
         
         .milestone-goal {
-            font-size: 16px;
+            font-size: clamp(14px, 2vw, 16px);
             color: #2c3e50;
             font-weight: 600;
+            line-height: 1.3;
         }
         
         .bottom-note {
             background: #fff3cd;
             border: 1px solid #ffeaa7;
             border-radius: 10px;
-            padding: 20px;
-            margin-top: 30px;
+            padding: clamp(15px, 2.5vw, 20px);
+            margin-top: clamp(20px, 3vw, 30px);
             text-align: center;
         }
         
         .note-text {
             color: #856404;
-            font-size: 16px;
+            font-size: clamp(14px, 2vw, 16px);
             margin: 0;
+            line-height: 1.5;
         }
         
         @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
             .slide {
-                padding: 30px;
-                margin: 20px;
+                margin: 10px;
+                border-radius: 15px;
             }
             
             .main-content {
                 grid-template-columns: 1fr;
-                gap: 30px;
+                gap: 20px;
             }
             
-            .title {
-                font-size: 32px;
-            }
-            
-            .funding-amount {
-                font-size: 36px;
+            .funding-box,
+            .use-of-funds {
+                min-height: auto;
             }
             
             .milestones {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .milestone {
+                min-height: 60px;
+            }
+            
+            .fund-category {
+                font-size: 14px;
+            }
+            
+            .fund-amount {
+                font-size: 16px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .fund-item {
                 flex-direction: column;
-                align-items: center;
+                text-align: center;
+                gap: 8px;
+            }
+            
+            .fund-category {
+                justify-content: center;
+            }
+            
+            .valuation-range {
+                font-size: 16px;
             }
         }
     </style>
@@ -275,47 +339,49 @@
             <div class="use-of-funds">
                 <div class="use-title">Use of Funds (18 Months)</div>
                 
-                <div class="fund-item">
-                    <div class="fund-category">
-                        <span class="fund-icon">👨‍💻</span>
-                        Product Development
+                <div class="fund-items-container">
+                    <div class="fund-item">
+                        <div class="fund-category">
+                            <span class="fund-icon">👨‍💻</span>
+                            Product Development
+                        </div>
+                        <div>
+                            <span class="fund-amount">$60K</span>
+                            <span class="fund-percentage">(40%)</span>
+                        </div>
                     </div>
-                    <div>
-                        <span class="fund-amount">$60K</span>
-                        <span class="fund-percentage">(40%)</span>
+                    
+                    <div class="fund-item">
+                        <div class="fund-category">
+                            <span class="fund-icon">🎯</span>
+                            Market Validation
+                        </div>
+                        <div>
+                            <span class="fund-amount">$45K</span>
+                            <span class="fund-percentage">(30%)</span>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="fund-item">
-                    <div class="fund-category">
-                        <span class="fund-icon">🎯</span>
-                        Market Validation
+                    
+                    <div class="fund-item">
+                        <div class="fund-category">
+                            <span class="fund-icon">🤝</span>
+                            Partnership Development
+                        </div>
+                        <div>
+                            <span class="fund-amount">$30K</span>
+                            <span class="fund-percentage">(20%)</span>
+                        </div>
                     </div>
-                    <div>
-                        <span class="fund-amount">$45K</span>
-                        <span class="fund-percentage">(30%)</span>
-                    </div>
-                </div>
-                
-                <div class="fund-item">
-                    <div class="fund-category">
-                        <span class="fund-icon">🤝</span>
-                        Partnership Development
-                    </div>
-                    <div>
-                        <span class="fund-amount">$30K</span>
-                        <span class="fund-percentage">(20%)</span>
-                    </div>
-                </div>
-                
-                <div class="fund-item">
-                    <div class="fund-category">
-                        <span class="fund-icon">💼</span>
-                        Operations & Legal
-                    </div>
-                    <div>
-                        <span class="fund-amount">$15K</span>
-                        <span class="fund-percentage">(10%)</span>
+                    
+                    <div class="fund-item">
+                        <div class="fund-category">
+                            <span class="fund-icon">💼</span>
+                            Operations & Legal
+                        </div>
+                        <div>
+                            <span class="fund-amount">$15K</span>
+                            <span class="fund-percentage">(10%)</span>
+                        </div>
                     </div>
                 </div>
             </div>
