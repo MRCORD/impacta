@@ -133,21 +133,22 @@
         }
 
         .logo {
-            width: clamp(80px, 10vw, 120px);
-            height: clamp(80px, 10vw, 120px);
-            background: linear-gradient(135deg, #FF6B6B, #4ECDC4);
-            border-radius: 30px;
             display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             margin-bottom: 30px;
+            padding: 20px;
+            background: white;
+            border-radius: 20px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .logo-text {
-            color: white;
-            font-size: clamp(24px, 3vw, 32px);
-            font-weight: bold;
+        .logo img {
+            height: clamp(60px, 8vw, 100px);
+            width: auto;
         }
 
         .tagline {
@@ -462,7 +463,7 @@
             <div class="slide-number">01/08</div>
             <div class="hero-content">
                 <div class="logo">
-                    <div class="logo-text">F.ai</div>
+                    <img src="https://florece.ai/florece-light.svg" alt="Florece.ai Logo">
                 </div>
                 <h1>Florece.ai</h1>
                 <div class="tagline">AI-Powered Mass Personalization Starts With Flowers</div>

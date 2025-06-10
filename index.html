@@ -79,10 +79,16 @@
         }
         
         .logo {
-            font-size: clamp(28px, 4vw, 36px);
-            font-weight: bold;
-            color: #2c3e50;
-            margin-bottom: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .logo img {
+            height: clamp(60px, 8vw, 80px);
+            width: auto;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
         }
         
         .tagline {
@@ -360,7 +366,9 @@
 
     <div class="slide">
         <div class="header">
-            <div class="logo">🌸 Florece.ai</div>
+            <div class="logo">
+                <img src="https://florece.ai/florece-light.svg" alt="Florece.ai Logo">
+            </div>
             <div class="tagline">AI-Generated Flower Designs → Real Arrangements → Delivered</div>
             <div class="title">Pre-Seed Funding Round</div>
             <div class="subtitle">Building Toward Product-Market Fit</div>
