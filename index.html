@@ -15,6 +15,41 @@
             align-items: center;
             justify-content: center;
         }
+
+        .navigation {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-button {
+            background: rgba(255, 255, 255, 0.9);
+            color: #2c3e50;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-button:hover {
+            background: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+
+        .nav-button.active {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
         
         .slide {
             background: white;
@@ -318,6 +353,11 @@
     </style>
 </head>
 <body>
+    <div class="navigation">
+        <a href="index.html" class="nav-button active">Funding Round</a>
+        <a href="investor-deck.html" class="nav-button">Investor Deck</a>
+    </div>
+
     <div class="slide">
         <div class="header">
             <div class="logo">🌸 Florece.ai</div>

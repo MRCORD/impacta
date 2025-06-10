@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Florece.ai - Investor Deck</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .navigation {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-button {
+            background: rgba(255, 255, 255, 0.9);
+            color: #2c3e50;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-button:hover {
+            background: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+
+        .nav-button.active {
+            background: linear-gradient(135deg, #FF6B6B, #4ECDC4);
+            color: white;
+        }
+
+        .deck-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 60px;
+        }
+
+        .slide {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            padding: 60px;
+            margin-bottom: 30px;
+            min-height: 600px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #FF6B6B, #4ECDC4, #45B7D1);
+        }
+
+        .slide-number {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            background: #f8f9fa;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            color: #666;
+            font-weight: 500;
+        }
+
+        h1 {
+            font-size: clamp(36px, 5vw, 48px);
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: clamp(28px, 4vw, 36px);
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        h3 {
+            font-size: clamp(20px, 3vw, 24px);
+            color: #34495e;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .subtitle {
+            font-size: clamp(16px, 2.5vw, 20px);
+            color: #7f8c8d;
+            margin-bottom: 40px;
+            font-weight: 400;
+        }
+
+        .hero-content {
+            text-align: center;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo {
+            width: clamp(80px, 10vw, 120px);
+            height: clamp(80px, 10vw, 120px);
+            background: linear-gradient(135deg, #FF6B6B, #4ECDC4);
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .logo-text {
+            color: white;
+            font-size: clamp(24px, 3vw, 32px);
+            font-weight: bold;
+        }
+
+        .tagline {
+            font-size: clamp(18px, 3vw, 24px);
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .contact-info {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 30px;
+            font-size: clamp(14px, 2vw, 16px);
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: clamp(20px, 3vw, 40px);
+            margin-top: 30px;
+        }
+
+        .problem-item {
+            background: #fff5f5;
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 4px solid #FF6B6B;
+        }
+
+        .solution-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin: 40px 0;
+            padding: 30px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 16px;
+        }
+
+        .flow-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .flow-step {
+            text-align: center;
+            flex: 1;
+            min-width: 150px;
+            padding: 20px;
+        }
+
+        .flow-icon {
+            width: clamp(50px, 6vw, 60px);
+            height: clamp(50px, 6vw, 60px);
+            background: linear-gradient(135deg, #4ECDC4, #45B7D1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            color: white;
+            font-size: clamp(18px, 2.5vw, 24px);
+        }
+
+        .arrow {
+            font-size: clamp(24px, 3vw, 30px);
+            color: #4ECDC4;
+            margin: 0 10px;
+            flex-shrink: 0;
+        }
+
+        .market-circles {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: clamp(15px, 3vw, 30px);
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .circle {
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .tam { 
+            width: clamp(150px, 15vw, 200px);
+            height: clamp(150px, 15vw, 200px);
+            background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+            font-size: clamp(16px, 2vw, 18px);
+        }
+        
+        .sam { 
+            width: clamp(120px, 12vw, 160px);
+            height: clamp(120px, 12vw, 160px);
+            background: linear-gradient(135deg, #4ECDC4, #44A08D);
+            font-size: clamp(14px, 1.8vw, 16px);
+        }
+        
+        .som { 
+            width: clamp(90px, 9vw, 120px);
+            height: clamp(90px, 9vw, 120px);
+            background: linear-gradient(135deg, #45B7D1, #667eea);
+            font-size: clamp(12px, 1.5vw, 14px);
+        }
+
+        .traction-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: clamp(20px, 3vw, 30px);
+            margin: 30px 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 30px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .stat-number {
+            font-size: clamp(28px, 4vw, 36px);
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: clamp(20px, 3vw, 30px);
+            margin: 30px 0;
+        }
+
+        .team-member {
+            text-align: center;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 16px;
+        }
+
+        .avatar {
+            width: clamp(60px, 8vw, 80px);
+            height: clamp(60px, 8vw, 80px);
+            background: linear-gradient(135deg, #4ECDC4, #45B7D1);
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: clamp(18px, 2.5vw, 24px);
+            font-weight: bold;
+        }
+
+        .funding-breakdown {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: clamp(20px, 3vw, 40px);
+            margin: 40px 0;
+        }
+
+        .funding-left {
+            flex: 1;
+        }
+
+        .funding-right {
+            flex: 1;
+        }
+
+        .use-of-funds {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 16px;
+        }
+
+        .fund-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            padding: 12px 0;
+            border-bottom: 1px solid #e9ecef;
+            font-size: clamp(14px, 2vw, 16px);
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: clamp(20px, 3vw, 30px);
+            border-radius: 16px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #FF6B6B, #4ECDC4);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: clamp(16px, 2vw, 18px);
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+            font-size: clamp(14px, 2vw, 16px);
+        }
+
+        li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #4ECDC4;
+            font-weight: bold;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: clamp(20px, 3vw, 40px);
+            margin-top: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .navigation {
+                position: relative;
+                top: 0;
+                left: 0;
+                justify-content: center;
+                margin-bottom: 20px;
+            }
+
+            .deck-container {
+                padding-top: 20px;
+            }
+
+            .slide {
+                padding: clamp(20px, 5vw, 40px);
+                margin-bottom: 20px;
+            }
+
+            .solution-flow .flow-container {
+                flex-direction: column;
+            }
+
+            .arrow {
+                transform: rotate(90deg);
+            }
+
+            .market-circles {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .funding-breakdown {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .problem-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .fund-item {
+                flex-direction: column;
+                gap: 5px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navigation">
+        <a href="index.html" class="nav-button">Funding Round</a>
+        <a href="investor-deck.html" class="nav-button active">Investor Deck</a>
+    </div>
+
+    <div class="deck-container">
+        
+        <!-- Slide 1: Introduction -->
+        <div class="slide">
+            <div class="slide-number">01/08</div>
+            <div class="hero-content">
+                <div class="logo">
+                    <div class="logo-text">F.ai</div>
+                </div>
+                <h1>Florece.ai</h1>
+                <div class="tagline">AI-Powered Mass Personalization Starts With Flowers</div>
+                <p class="subtitle">We built Florece.ai because buying flowers shouldn't mean settling for generic arrangements</p>
+                <div class="contact-info">
+                    <strong>Founded:</strong> 2024 | <strong>Location:</strong> Peru<br>
+                    <strong>Contact:</strong> founder@florece.ai | +51 XXX XXX XXX
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: Problem -->
+        <div class="slide">
+            <div class="slide-number">02/08</div>
+            <h2>The $35B Flower Industry Is Stuck in the Past</h2>
+            <div class="problem-grid">
+                <div class="problem-item">
+                    <h3>🏪 Generic Catalogs</h3>
+                    <p>Customers forced to choose from pre-made arrangements that don't match their emotions or needs</p>
+                </div>
+                <div class="problem-item">
+                    <h3>💔 Personal Disconnect</h3>
+                    <p>Flowers are deeply personal expressions for emotional moments, yet options are impersonal</p>
+                </div>
+                <div class="problem-item">
+                    <h3>📱 Tech Gap</h3>
+                    <p>Younger consumers expect personalization, but flower industry hasn't evolved</p>
+                </div>
+                <div class="problem-item">
+                    <h3>😞 Customer Disappointment</h3>
+                    <p>Current process: Browse → Settle → Disappoint</p>
+                </div>
+            </div>
+            <div class="highlight-box">
+                <strong>The fundamental problem:</strong> Flowers are emotional, personal expressions, but the industry forces customers into generic, one-size-fits-all solutions.
+            </div>
+        </div>
+
+        <!-- Slide 3: Solution -->
+        <div class="slide">
+            <div class="slide-number">03/08</div>
+            <h2>Conversational AI Creates Unique Arrangements</h2>
+            <p class="subtitle">Every customer gets exactly what they want, not what's available</p>
+            
+            <div class="solution-flow">
+                <div class="flow-container">
+                    <div class="flow-step">
+                        <div class="flow-icon">💬</div>
+                        <h3>Describe</h3>
+                        <p>Customer tells our AI their needs, emotions, occasion</p>
+                    </div>
+                    <div class="arrow">→</div>
+                    <div class="flow-step">
+                        <div class="flow-icon">🎨</div>
+                        <h3>Design</h3>
+                        <p>AI creates completely unique arrangement in real-time</p>
+                    </div>
+                    <div class="arrow">→</div>
+                    <div class="flow-step">
+                        <div class="flow-icon">🌸</div>
+                        <h3>Deliver</h3>
+                        <p>Fresh flowers delivered in Peru</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="two-column">
+                <div>
+                    <h3>✨ What Makes Us Different</h3>
+                    <ul>
+                        <li>No catalogs to browse</li>
+                        <li>No settling for "close enough"</li>
+                        <li>Every arrangement is one-of-a-kind</li>
+                        <li>Fully automated and scalable</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>🎯 Perfect First Use Case</h3>
+                    <ul>
+                        <li>Highly emotional purchases</li>
+                        <li>Visual products AI can excel at</li>
+                        <li>Clear value vs generic options</li>
+                        <li>Immediate customer feedback</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Market -->
+        <div class="slide">
+            <div class="slide-number">04/08</div>
+            <h2>Massive Market, Perfect Entry Point</h2>
+            
+            <div class="market-circles">
+                <div class="circle tam">
+                    <div>TAM</div>
+                    <div>$35B</div>
+                    <div style="font-size: 12px;">Global Flower Industry</div>
+                </div>
+                <div class="circle sam">
+                    <div>SAM</div>
+                    <div>$2.1B</div>
+                    <div style="font-size: 12px;">Latin America</div>
+                </div>
+                <div class="circle som">
+                    <div>SOM</div>
+                    <div>$180M</div>
+                    <div style="font-size: 12px;">Peru Online</div>
+                </div>
+            </div>
+
+            <div class="two-column">
+                <div>
+                    <h3>🌺 Why Flowers First?</h3>
+                    <ul>
+                        <li>Deeply emotional purchases (perfect for personalization)</li>
+                        <li>Visual products where AI can excel</li>
+                        <li>Fragmented, outdated industry</li>
+                        <li>High willingness to pay for quality</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>🚀 Market Dynamics</h3>
+                    <ul>
+                        <li>Growing demand for personalization</li>
+                        <li>Shift to online purchases post-COVID</li>
+                        <li>Young consumers value authenticity</li>
+                        <li>AI technology now mature enough</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Traction -->
+        <div class="slide">
+            <div class="slide-number">05/08</div>
+            <h2>Early Validation & Capital Efficiency</h2>
+            
+            <div class="traction-stats">
+                <div class="stat-card">
+                    <div class="stat-number">Month 14</div>
+                    <div>Path to Profitability</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">$22K</div>
+                    <div>Capital to Break-Even</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">38.6%</div>
+                    <div>Gross Margins</div>
+                </div>
+            </div>
+
+            <div class="two-column">
+                <div>
+                    <h3>🎯 Current Status</h3>
+                    <ul>
+                        <li>AI design system operational</li>
+                        <li>Unit economics validated</li>
+                        <li>Customer feedback extremely positive</li>
+                        <li>Supply chain partnerships established</li>
+                        <li>Technology stack proven</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>📈 Key Metrics</h3>
+                    <ul>
+                        <li>Starting: 20 orders/month</li>
+                        <li>Growth target: 25% monthly</li>
+                        <li>AOV: 150-168 PEN + delivery</li>
+                        <li>Contribution margin: ~61 PEN/order</li>
+                        <li>Extremely capital efficient model</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <strong>Key Insight:</strong> We're not just building a flower company - we're proving that AI-powered mass customization can work profitably at scale.
+            </div>
+        </div>
+
+        <!-- Slide 6: Team -->
+        <div class="slide">
+            <div class="slide-number">06/08</div>
+            <h2>Perfect Combination of AI + Business</h2>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="avatar">F1</div>
+                    <h3>Founder #1</h3>
+                    <p><strong>AI & Technology</strong></p>
+                    <p>Previous experience with machine learning, product development, and scaling technology platforms.</p>
+                </div>
+                <div class="team-member">
+                    <div class="avatar">F2</div>
+                    <h3>Founder #2</h3>
+                    <p><strong>Business & Operations</strong></p>
+                    <p>Background in business development, customer acquisition, and operational excellence.</p>
+                </div>
+                <div class="team-member">
+                    <div class="avatar">A</div>
+                    <h3>Key Advisors</h3>
+                    <p><strong>Industry Experts</strong></p>
+                    <p>Advisors from AI, e-commerce, and Latin American startup ecosystem.</p>
+                </div>
+            </div>
+
+            <div class="two-column">
+                <div>
+                    <h3>🏆 Why This Team Wins</h3>
+                    <ul>
+                        <li>Deep understanding of AI capabilities</li>
+                        <li>Strong business execution track record</li>
+                        <li>Local market knowledge in Peru</li>
+                        <li>Proven ability to build and scale</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>🎯 Next Hires</h3>
+                    <ul>
+                        <li>Senior AI Engineer (6 months)</li>
+                        <li>Customer Success Manager (9 months)</li>
+                        <li>Operations Manager (12 months)</li>
+                        <li>Marketing Specialist (15 months)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: Vision -->
+        <div class="slide">
+            <div class="slide-number">07/08</div>
+            <h2>The Future of Commerce Is Personal</h2>
+            
+            <div class="highlight-box">
+                <h3>🚀 Our Vision</h3>
+                <p style="font-size: 20px; margin-bottom: 20px;">Every customer gets exactly what they want, not what's available</p>
+                <p>We're building the leading AI-powered personalization platform in Latin America</p>
+            </div>
+
+            <div class="two-column">
+                <div>
+                    <h3>🎯 Near-term Impact (2-3 years)</h3>
+                    <ul>
+                        <li>Transform Peru's flower industry</li>
+                        <li>Expand to gifts, home decor, fashion</li>
+                        <li>Launch in Colombia, Mexico, Chile</li>
+                        <li>Prove AI mass customization works</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>🌟 Long-term Vision (10 years)</h3>
+                    <ul>
+                        <li>Leading personalization platform in LatAm</li>
+                        <li>Any industry with generic options</li>
+                        <li>Global expansion opportunities</li>
+                        <li>AI that understands cultural nuances</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <strong>Why Now?</strong> AI technology is finally mature enough to make true mass personalization profitable. Every industry that forces customers into cookie-cutter options should be worried.
+            </div>
+        </div>
+
+        <!-- Slide 8: Funding -->
+        <div class="slide">
+            <div class="slide-number">08/08</div>
+            <h2>$200K to Prove the Future of Commerce</h2>
+            
+            <div class="funding-breakdown">
+                <div class="funding-left">
+                    <div class="highlight-box">
+                        <h3>The Ask</h3>
+                        <div style="font-size: 36px; margin: 20px 0;">$200K</div>
+                        <div style="font-size: 18px;">for 7% equity</div>
+                        <div style="font-size: 16px; margin-top: 10px;">$2.8M valuation</div>
+                    </div>
+                    
+                    <h3 style="margin-top: 30px;">🎯 18-Month Milestones</h3>
+                    <ul>
+                        <li>1,000+ monthly orders</li>
+                        <li>Break-even operations</li>
+                        <li>Series A readiness</li>
+                        <li>Expansion market validation</li>
+                    </ul>
+                </div>
+                
+                <div class="funding-right">
+                    <div class="use-of-funds">
+                        <h3>💰 Use of Funds</h3>
+                        <div class="fund-item">
+                            <span>Technology & AI Development</span>
+                            <strong>50% ($100K)</strong>
+                        </div>
+                        <div class="fund-item">
+                            <span>Customer Acquisition & Growth</span>
+                            <strong>30% ($60K)</strong>
+                        </div>
+                        <div class="fund-item">
+                            <span>Team Expansion</span>
+                            <strong>20% ($40K)</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-content" style="margin-top: 40px;">
+                <h3>Ready to revolutionize commerce with us?</h3>
+                <button class="cta-button">Let's Talk: founder@florece.ai</button>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html> 
