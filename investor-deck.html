@@ -1144,10 +1144,10 @@
             <div style="background: #f8f9fa; padding: 30px; border-radius: 16px; margin: 30px 0;">
                 <h3 style="text-align: center; margin-bottom: 30px;">💬 Real Customer Conversation</h3>
                 
-                <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 25px; align-items: start;">
-                    <div style="background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); overflow: hidden;">
+                <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 25px; align-items: stretch;">
+                    <div style="background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); overflow: hidden; height: 700px; display: flex; flex-direction: column;">
                         <!-- Chat Header -->
-                        <div style="background: #f8f9fa; padding: 15px 20px; border-bottom: 1px solid #e9ecef; display: flex; justify-content: space-between; align-items: center;">
+                        <div style="background: #f8f9fa; padding: 15px 20px; border-bottom: 1px solid #e9ecef; display: flex; justify-content: space-between; align-items: center; flex-shrink: 0;">
                             <div style="display: flex; gap: 20px;">
                                 <div style="color: #2c3e50; font-weight: 600; padding-bottom: 5px; border-bottom: 2px solid #4ECDC4;">Chat</div>
                                 <div style="color: #666; position: relative;">
@@ -1161,7 +1161,7 @@
                         </div>
                         
                         <!-- Chat Messages -->
-                        <div style="padding: 20px; min-height: 280px; background: #fafafa;">
+                        <div style="padding: 20px; background: #fafafa; flex: 1; overflow-y: auto;">
                             <!-- AI Welcome Message -->
                             <div style="display: flex; align-items: start; margin-bottom: 15px;">
                                 <div style="background: white; padding: 12px 16px; border-radius: 18px; max-width: 85%; box-shadow: 0 2px 8px rgba(0,0,0,0.08); font-size: 13px; line-height: 1.4;">
@@ -1207,18 +1207,16 @@
                         </div>
                     </div>
                     
-                    <div style="background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); overflow: hidden;">
+                    <div style="background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); overflow: hidden; height: 700px; display: flex; flex-direction: column;">
                         <!-- Header -->
-                        <div style="background: #f8f9fa; padding: 15px 20px; border-bottom: 1px solid #e9ecef;">
+                        <div style="background: #f8f9fa; padding: 15px 20px; border-bottom: 1px solid #e9ecef; flex-shrink: 0;">
                             <h4 style="color: #FF6B6B; margin: 0; font-size: 16px;">AI-Generated Design:</h4>
                         </div>
                         <!-- Content -->
-                        <div style="padding: 20px; min-height: 280px; display: flex; flex-direction: column; justify-content: space-between; text-align: center;">
-                            <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-                                <img src="https://linlbyhvkazpmpulzvon.supabase.co/storage/v1/object/public/images/landing/arrangement-1.png" alt="Intensidad Carmesí - AI Generated Arrangement" style="width: 100%; max-width: 180px; height: auto; border-radius: 8px; margin-bottom: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-                                <h5 style="color: #FF6B6B; font-weight: bold; margin-bottom: 8px; font-size: 16px;">Intensidad Carmesí</h5>
-                                <p style="font-size: 13px; color: #666; line-height: 1.4; max-width: 220px;">Elegant combination of red roses and fuchsia tulips, enhanced with mini roses and delicate limonium. Bold yet sophisticated - perfect for passionate love.</p>
-                            </div>
+                        <div style="padding: 20px; flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+                            <img src="https://linlbyhvkazpmpulzvon.supabase.co/storage/v1/object/public/images/landing/arrangement-1.png" alt="Intensidad Carmesí - AI Generated Arrangement" style="width: 100%; max-width: 200px; height: auto; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                            <h5 style="color: #FF6B6B; font-weight: bold; margin-bottom: 12px; font-size: 18px;">Intensidad Carmesí</h5>
+                            <p style="font-size: 14px; color: #666; line-height: 1.5; max-width: 250px;">Elegant combination of red roses and fuchsia tulips, enhanced with mini roses and delicate limonium. Bold yet sophisticated - perfect for passionate love.</p>
                         </div>
                     </div>
                 </div>
