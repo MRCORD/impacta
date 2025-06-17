@@ -1142,29 +1142,89 @@
             <p class="subtitle">From conversation to custom design in real-time</p>
             
             <div style="background: #f8f9fa; padding: 30px; border-radius: 16px; margin: 30px 0;">
-                <h3 style="text-align: center; margin-bottom: 30px;">💬 Real Customer Example</h3>
+                <h3 style="text-align: center; margin-bottom: 30px;">💬 Real Customer Conversation</h3>
                 
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: start;">
-                    <div style="background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
-                        <h4 style="color: #4ECDC4; margin-bottom: 15px;">Customer Input:</h4>
-                        <div style="font-style: italic; background: #f0f9ff; padding: 15px; border-radius: 8px; border-left: 4px solid #4ECDC4;">
-                            "I'm nervous about proposing to my girlfriend tomorrow. She absolutely loves sunflowers and yellow colors. I want something that shows how much I care but isn't too overwhelming. This is the biggest moment of my life."
+                <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 25px; align-items: start;">
+                    <div style="background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); overflow: hidden;">
+                        <!-- Chat Header -->
+                        <div style="background: #f8f9fa; padding: 15px 20px; border-bottom: 1px solid #e9ecef; display: flex; justify-content: space-between; align-items: center;">
+                            <div style="display: flex; gap: 20px;">
+                                <div style="color: #2c3e50; font-weight: 600; padding-bottom: 5px; border-bottom: 2px solid #4ECDC4;">Chat</div>
+                                <div style="color: #666; position: relative;">
+                                    Sugerencias
+                                    <span style="background: #007bff; color: white; border-radius: 50%; width: 18px; height: 18px; font-size: 12px; display: inline-flex; align-items: center; justify-content: center; position: absolute; top: -8px; right: -10px;">0</span>
+                                </div>
+                            </div>
+                            <div style="background: #28a745; color: white; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 600;">
+                                Pedido creado
+                            </div>
+                        </div>
+                        
+                        <!-- Chat Messages -->
+                        <div style="padding: 20px; min-height: 280px; background: #fafafa;">
+                            <!-- AI Welcome Message -->
+                            <div style="display: flex; align-items: start; margin-bottom: 15px;">
+                                <div style="background: white; padding: 12px 16px; border-radius: 18px; max-width: 85%; box-shadow: 0 2px 8px rgba(0,0,0,0.08); font-size: 13px; line-height: 1.4;">
+                                    Hi there! 😊 I'm excited to help you create the perfect floral arrangement. What's the special occasion you have in mind? Tell me a bit more about what you're looking for and we'll find the perfect design together.
+                                </div>
+                            </div>
+                            
+                            <!-- Customer Message -->
+                            <div style="display: flex; justify-content: flex-end; margin-bottom: 15px;">
+                                <div style="background: #007bff; color: white; padding: 12px 16px; border-radius: 18px; max-width: 85%; font-size: 13px; line-height: 1.4;">
+                                    I want to surprise my wife for our 5th anniversary tonight
+                                </div>
+                            </div>
+                            
+                            <!-- AI Response -->
+                            <div style="display: flex; align-items: start; margin-bottom: 15px;">
+                                <div style="background: white; padding: 12px 16px; border-radius: 18px; max-width: 85%; box-shadow: 0 2px 8px rgba(0,0,0,0.08); font-size: 13px; line-height: 1.4;">
+                                    How wonderful! 💕 5 years is such a special milestone. Tell me about your wife - what's her personality like? Does she prefer subtle elegance or bold, dramatic statements? Any favorite colors?
+                                </div>
+                            </div>
+                            
+                            <!-- Customer Final Message -->
+                            <div style="display: flex; justify-content: flex-end; margin-bottom: 15px;">
+                                <div style="background: #007bff; color: white; padding: 12px 16px; border-radius: 18px; max-width: 85%; font-size: 13px; line-height: 1.4;">
+                                    She's incredibly passionate and bold - never goes for subtle or safe choices. I need something that shows the intensity of my love for her, something that screams romance but is still elegant. She loves deep, rich colors - especially reds and bold pinks. This needs to be dramatic and unforgettable, like she is.
+                                </div>
+                            </div>
+                            
+                            <!-- AI Final Response -->
+                            <div style="display: flex; align-items: start; margin-bottom: 20px;">
+                                <div style="background: white; padding: 12px 16px; border-radius: 18px; max-width: 85%; box-shadow: 0 2px 8px rgba(0,0,0,0.08); font-size: 13px; line-height: 1.4;">
+                                    Perfect! I can already envision something stunning for her. 🌹 Let me create an arrangement that captures that passionate intensity - deep reds and bold pinks with sophisticated touches. Give me a moment to design something as unforgettable as your wife! ✨
+                                </div>
+                            </div>
+                            
+                            <!-- See Suggestions Button -->
+                            <div style="display: flex; justify-content: center;">
+                                <button style="background: transparent; border: 2px solid #007bff; color: #007bff; padding: 8px 16px; border-radius: 20px; font-size: 14px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 6px;">
+                                    <span style="font-size: 12px;">👁</span>
+                                    See Design
+                                </button>
+                            </div>
                         </div>
                     </div>
                     
-                    <div style="background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
-                        <h4 style="color: #FF6B6B; margin-bottom: 15px;">AI-Generated Design:</h4>
-                        <div style="background: #fff8f0; padding: 15px; border-radius: 8px; border-left: 4px solid #FF6B6B;">
-                            <div style="height: 120px; background: linear-gradient(135deg, #FFE55C, #FFA726); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; margin-bottom: 10px;">
-                                [AI-Generated Arrangement Preview]
+                    <div style="background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); overflow: hidden;">
+                        <!-- Header -->
+                        <div style="background: #f8f9fa; padding: 15px 20px; border-bottom: 1px solid #e9ecef;">
+                            <h4 style="color: #FF6B6B; margin: 0; font-size: 16px;">AI-Generated Design:</h4>
+                        </div>
+                        <!-- Content -->
+                        <div style="padding: 20px; min-height: 280px; display: flex; flex-direction: column; justify-content: space-between; text-align: center;">
+                            <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                                <img src="https://linlbyhvkazpmpulzvon.supabase.co/storage/v1/object/public/images/landing/arrangement-1.png" alt="Intensidad Carmesí - AI Generated Arrangement" style="width: 100%; max-width: 180px; height: auto; border-radius: 8px; margin-bottom: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                                <h5 style="color: #FF6B6B; font-weight: bold; margin-bottom: 8px; font-size: 16px;">Intensidad Carmesí</h5>
+                                <p style="font-size: 13px; color: #666; line-height: 1.4; max-width: 220px;">Elegant combination of red roses and fuchsia tulips, enhanced with mini roses and delicate limonium. Bold yet sophisticated - perfect for passionate love.</p>
                             </div>
-                            <p style="font-size: 14px; color: #666;">Elegant sunflower bouquet with baby's breath, soft yellow roses, and eucalyptus. Wrapped in natural burlap with golden ribbon.</p>
                         </div>
                     </div>
                 </div>
                 
-                <div style="text-align: center; margin-top: 25px;">
-                    <div style="display: inline-flex; align-items: center; gap: 15px; background: white; padding: 15px 25px; border-radius: 50px; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
+                <div style="text-align: center; margin-top: 20px;">
+                    <div style="display: inline-flex; align-items: center; gap: 12px; background: white; padding: 12px 20px; border-radius: 50px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); font-size: 14px;">
                         <span style="color: #4ECDC4; font-weight: bold;">Generic Catalog:</span>
                         <span style="color: #999;">15 pre-made options</span>
                         <span style="color: #FF6B6B; font-weight: bold;">vs.</span>
@@ -1648,10 +1708,23 @@
     </div>
 
     <script>
-        // Version switching functionality
-        document.getElementById('versionSelect').addEventListener('change', function() {
-            const selectedVersion = this.value;
-            
+        // Function to get URL parameters
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
+
+        // Function to update URL without page reload
+        function updateUrl(version) {
+            const url = new URL(window.location);
+            url.searchParams.set('version', version);
+            window.history.replaceState({}, '', url);
+        }
+
+        // Function to switch versions
+        function switchVersion(version) {
             // Hide all version contents
             const versionContents = document.querySelectorAll('.version-content');
             versionContents.forEach(content => {
@@ -1659,15 +1732,35 @@
             });
             
             // Show selected version
-            const selectedContent = document.getElementById('version-' + selectedVersion);
+            const selectedContent = document.getElementById('version-' + version);
             if (selectedContent) {
                 selectedContent.style.display = 'block';
             }
+
+            // Update dropdown
+            const dropdown = document.getElementById('versionSelect');
+            dropdown.value = version;
+
+            // Update URL
+            updateUrl(version);
+        }
+
+        // Version switching functionality
+        document.getElementById('versionSelect').addEventListener('change', function() {
+            const selectedVersion = this.value;
+            switchVersion(selectedVersion);
         });
 
-        // Initialize - show version 1.0 by default
+        // Initialize - check URL parameter or default to v1.0
         document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('version-v1.0').style.display = 'block';
+            const urlVersion = getUrlParameter('version');
+            const defaultVersion = 'v1.0';
+            
+            // Validate version exists
+            const validVersions = ['v1.0', 'v2.0'];
+            const initialVersion = validVersions.includes(urlVersion) ? urlVersion : defaultVersion;
+            
+            switchVersion(initialVersion);
         });
     </script>
 </body>
