@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Florece.ai - Investment One-Pager</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .navigation {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-button {
+            background: rgba(255, 255, 255, 0.9);
+            color: #2c3e50;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-button:hover {
+            background: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+
+        .nav-button.active {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .page {
+            background: white;
+            border-radius: 20px;
+            padding: 60px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            max-width: 1200px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            margin: 20px;
+            min-height: 800px;
+        }
+
+        .page::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #4ecdc4);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 2px solid #f8f9fa;
+            padding-bottom: 30px;
+        }
+
+        .logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+        }
+
+        .tagline {
+            font-size: 24px;
+            color: #2c3e50;
+            font-weight: 700;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            font-size: 16px;
+            color: #7f8c8d;
+            margin-bottom: 0;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .section {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-content {
+            color: #34495e;
+            line-height: 1.5;
+            font-size: 14px;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .highlight-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .highlight-number {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .highlight-text {
+            font-size: 16px;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .metrics-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .metric {
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            flex: 1;
+        }
+
+        .metric-number {
+            font-size: 24px;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+
+        .metric-label {
+            font-size: 12px;
+            color: #7f8c8d;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .team-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .team-member {
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .team-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            margin: 0 auto 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .team-name {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+        .team-role {
+            font-size: 12px;
+            color: #7f8c8d;
+        }
+
+        .bottom-section {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .contact-info {
+            background: #2c3e50;
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .contact-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .contact-details {
+            font-size: 14px;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .icon {
+            width: 20px;
+            height: 20px;
+            fill: #667eea;
+        }
+
+        .bullet-points {
+            list-style: none;
+            padding: 0;
+        }
+
+        .bullet-points li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+        }
+
+        .bullet-points li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .page {
+                padding: 30px;
+                margin: 10px;
+            }
+            
+            .content-grid,
+            .bottom-section {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .team-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .metrics-row {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navigation">
+        <a href="index.html" class="nav-button">Funding Round</a>
+        <a href="investor-deck.html" class="nav-button">Investor Deck</a>
+        <a href="one-pager.html" class="nav-button active">One-Pager</a>
+    </nav>
+
+    <div class="page">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">
+                <img src="https://florece.ai/florece-light.svg" alt="Florece.ai Logo">
+            </div>
+            <div class="tagline">AI-Powered Mass Personalization Starts With Flowers</div>
+            <div class="subtitle">We built Florece.ai because buying flowers shouldn't mean settling for generic arrangements</div>
+        </div>
+
+        <!-- Vision Statement -->
+        <div class="highlight-box">
+            <div class="highlight-number">$35B</div>
+            <div class="highlight-text">Global flower industry stuck in the past<br>Every customer gets exactly what they want, not what's available</div>
+        </div>
+
+        <!-- Main Content Grid -->
+        <div class="content-grid">
+            <!-- Problem & Solution -->
+            <div class="section">
+                <div class="section-title">
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                    The Problem
+                </div>
+                <div class="section-content">
+                    <ul class="bullet-points">
+                        <li>Customers forced to choose from generic catalogs that don't match their emotions</li>
+                        <li>Flowers are deeply personal expressions, yet options are completely impersonal</li>
+                        <li>Younger consumers expect personalization, but flower industry hasn't evolved</li>
+                        <li>Current process: Browse → Settle → Disappoint</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Our Solution -->
+            <div class="section">
+                <div class="section-title">
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    Our Solution
+                </div>
+                <div class="section-content">
+                    <ul class="bullet-points">
+                        <li>Conversational AI creates completely unique arrangements in real-time</li>
+                        <li>Customer describes their needs, emotions, and occasion to our AI</li>
+                        <li>No catalogs to browse, no settling for "close enough"</li>
+                        <li>Every arrangement is one-of-a-kind, delivered fresh in Peru</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Market Opportunity -->
+            <div class="section">
+                <div class="section-title">
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                    </svg>
+                    Market Opportunity
+                </div>
+                <div class="section-content">
+                    <ul class="bullet-points">
+                        <li><strong>TAM:</strong> $35B global flower industry</li>
+                        <li><strong>SAM:</strong> $2.1B Latin America flower market</li>
+                        <li><strong>SOM:</strong> $180M Peru online flower market</li>
+                        <li>Perfect first use case: emotional purchases where AI excels</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Competitive Advantage -->
+            <div class="section">
+                <div class="section-title">
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                    </svg>
+                    Our Edge
+                </div>
+                <div class="section-content">
+                    <ul class="bullet-points">
+                        <li>First-to-market with AI-powered mass customization for flowers</li>
+                        <li>World-class team: ex-Torre, fintech scale, Meta advertising expertise</li>
+                        <li>Proven unit economics: 38.6% gross margins, 14-month breakeven</li>
+                        <li>Extremely capital efficient: Only $22K needed to reach profitability</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Key Metrics -->
+        <div class="metrics-row">
+            <div class="metric">
+                <div class="metric-number">Month 14</div>
+                <div class="metric-label">Path to Profitability</div>
+            </div>
+            <div class="metric">
+                <div class="metric-number">$22K</div>
+                <div class="metric-label">Capital to Break-Even</div>
+            </div>
+            <div class="metric">
+                <div class="metric-number">38.6%</div>
+                <div class="metric-label">Gross Margins</div>
+            </div>
+            <div class="metric">
+                <div class="metric-number">150-168</div>
+                <div class="metric-label">PEN AOV</div>
+            </div>
+        </div>
+
+        <!-- Team Section -->
+        <div class="section">
+            <div class="section-title">
+                <svg class="icon" viewBox="0 0 24 24">
+                    <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+                </svg>
+                World-Class Team
+            </div>
+            <div class="team-section">
+                <div class="team-member">
+                    <div class="team-avatar">LH</div>
+                    <div class="team-name">Luis Huayaney</div>
+                    <div class="team-role">CEO & Co-founder<br>5+ yrs IBK/Mibanco, 2M+ customers</div>
+                </div>
+                <div class="team-member">
+                    <div class="team-avatar">OM</div>
+                    <div class="team-name">Omar Mendoza</div>
+                    <div class="team-role">CMO & Co-founder<br>Meta Ads Lead Trainer, $100K+ budgets</div>
+                </div>
+                <div class="team-member">
+                    <div class="team-avatar">OR</div>
+                    <div class="team-name">Oscar Rivas</div>
+                    <div class="team-role">CTO & Co-founder<br>Ex-Torre, 6+ yrs AI/Engineering</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Section -->
+        <div class="bottom-section">
+            <!-- Business Model & Traction -->
+            <div class="section">
+                <div class="section-title">
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                    Business Model & Traction
+                </div>
+                <div class="section-content">
+                    <ul class="bullet-points">
+                        <li><strong>Revenue Model:</strong> Direct sales of personalized flower arrangements</li>
+                        <li><strong>Current Metrics:</strong> Starting 20 orders/month, targeting 25% growth</li>
+                        <li><strong>Unit Economics:</strong> 150-168 PEN AOV, ~61 PEN contribution margin</li>
+                        <li><strong>Capital Efficiency:</strong> Only $22K needed to reach break-even</li>
+                        <li><strong>Funding:</strong> Raising $200K for 7% equity ($2.8M valuation)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="contact-info">
+                <div class="contact-title">Ready to Revolutionize Commerce?</div>
+                <div class="contact-details">
+                    <strong>Florece.ai Founding Team</strong><br>
+                    Luis, Omar & Oscar<br><br>
+                    📧 founder@florece.ai<br>
+                    📱 +51 XXX XXX XXX<br>
+                    🌐 www.florece.ai<br><br>
+                    <strong>Seeking:</strong> $200K for 7% equity<br>
+                    <strong>Valuation:</strong> $2.8M pre-money
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
