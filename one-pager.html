@@ -51,6 +51,41 @@
             color: white;
         }
 
+        .version-selector {
+            display: flex;
+            align-items: center;
+        }
+
+        .version-dropdown {
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            border-radius: 25px;
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #2c3e50;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            outline: none;
+            min-width: 140px;
+        }
+
+        .version-dropdown:hover {
+            background: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+
+        .version-content {
+            display: none;
+        }
+
+        .version-content.active {
+            display: block;
+        }
+
         .page {
             background: white;
             border-radius: 20px;
@@ -322,14 +357,22 @@
     </style>
 </head>
 <body>
-    <nav class="navigation">
+    <div class="navigation">
         <a href="index.html" class="nav-button">Funding Round</a>
         <a href="investor-deck.html" class="nav-button">Investor Deck</a>
         <a href="one-pager.html" class="nav-button active">One-Pager</a>
-    </nav>
+        <div class="version-selector">
+            <select id="versionSelect" class="version-dropdown">
+                <option value="v2.0">Version 2.0</option>
+                <option value="v3.0" selected>Version 3.0</option>
+            </select>
+        </div>
+    </div>
 
-    <div class="page">
-        <!-- Header -->
+    <!-- Version 2.0 Content -->
+    <div class="version-content" id="version-v2.0">
+        <div class="page">
+            <!-- Header -->
         <div class="header">
             <div class="logo">
                 <img src="https://florece.ai/florece-light.svg" alt="Florece.ai Logo">
@@ -502,5 +545,243 @@
             </div>
         </div>
     </div>
+    <!-- End Version 2.0 -->
+
+    <!-- Version 3.0 Content -->
+    <div class="version-content" id="version-v3.0">
+        <div class="page">
+            <!-- Header -->
+            <div class="header">
+                <div class="logo">
+                    <img src="https://florece.ai/florece-light.svg" alt="Florece.ai Logo">
+                </div>
+                <div class="tagline">The Future of Commerce is Personal</div>
+                <div class="subtitle">AI-Powered Mass Personalization Starts With Flowers</div>
+            </div>
+
+            <!-- Vision Statement -->
+            <div class="highlight-box">
+                <div class="highlight-number">$200K for 7% equity</div>
+                <div class="highlight-text">The Future of Commerce is Personal<br>14 months to break-even • $23K capital needed • Infinite personalization</div>
+            </div>
+
+            <!-- Main Content Grid -->
+            <div class="content-grid">
+                <!-- Problem & Solution -->
+                <div class="section">
+                    <div class="section-title">
+                        <svg class="icon" viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        Catalog Prison Problem
+                    </div>
+                    <div class="section-content">
+                        <ul class="bullet-points">
+                            <li><strong>$35B industry forces generic choices:</strong> 15-20 pre-made arrangements that rarely match emotions</li>
+                            <li><strong>Emotional mismatch:</strong> Most personal gifts treated like commodities</li>
+                            <li><strong>Tech desert:</strong> While AI transforms everything, flowers stuck in 1990s catalogs</li>
+                            <li><strong>Current process:</strong> Browse limited options → Settle for "close enough" → Disappoint</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- AI Solution -->
+                <div class="section">
+                    <div class="section-title">
+                        <svg class="icon" viewBox="0 0 24 24">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        AI Creates Infinite Arrangements
+                    </div>
+                    <div class="section-content">
+                        <ul class="bullet-points">
+                            <li><strong>Conversation → AI Magic → Visual Preview → Delivery:</strong> Real-time custom designs</li>
+                            <li><strong>Zero catalogs:</strong> No browsing, no scrolling, no settling</li>
+                            <li><strong>Perfect emotional match:</strong> AI understands feelings, not just keywords</li>
+                            <li><strong>Infinite variety:</strong> Never the same design twice, perfectly scalable</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Market Opportunity -->
+                <div class="section">
+                    <div class="section-title">
+                        <svg class="icon" viewBox="0 0 24 24">
+                            <path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                        </svg>
+                        Massive Market, Perfect Timing
+                    </div>
+                    <div class="section-content">
+                        <ul class="bullet-points">
+                            <li><strong>TAM:</strong> $35B global flower industry ready for AI disruption</li>
+                            <li><strong>SAM:</strong> $2.1B Latin America underserved by AI innovation</li>
+                            <li><strong>SOM:</strong> $180M Peru online market, first-mover advantage</li>
+                            <li><strong>Why Now:</strong> AI maturity + personalization demand + post-COVID online shift</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Competitive Advantage -->
+                <div class="section">
+                    <div class="section-title">
+                        <svg class="icon" viewBox="0 0 24 24">
+                            <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                        </svg>
+                        Unfair Advantages
+                    </div>
+                    <div class="section-content">
+                        <ul class="bullet-points">
+                            <li><strong>AI-native platform:</strong> Built for personalization from ground up, not retrofitted</li>
+                            <li><strong>World-class team:</strong> 2M+ customer banking experience + Torre AI systems + Meta mastery</li>
+                            <li><strong>LatAm first-mover:</strong> No AI competition in region, cultural understanding</li>
+                            <li><strong>Capital efficiency:</strong> 14 months to break-even vs. heavy infrastructure competitors</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Metrics -->
+            <div class="metrics-row">
+                <div class="metric">
+                    <div class="metric-number">14 Months</div>
+                    <div class="metric-label">To Break-Even</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-number">$23K</div>
+                    <div class="metric-label">Capital Needed</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-number">34%</div>
+                    <div class="metric-label">Gross Margins</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-number">∞</div>
+                    <div class="metric-label">Arrangements Possible</div>
+                </div>
+            </div>
+
+            <!-- Team Section -->
+            <div class="section">
+                <div class="section-title">
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+                    </svg>
+                    Elite Team + Network
+                </div>
+                <div class="team-section">
+                    <div class="team-member">
+                        <div class="team-avatar">LH</div>
+                        <div class="team-name">Luis Huayaney</div>
+                        <div class="team-role">CEO & Co-founder<br>2M+ IBK customers, Perplexity Fellow</div>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-avatar">OM</div>
+                        <div class="team-name">Omar Mendoza</div>
+                        <div class="team-role">CMO & Co-founder<br>Certified Meta Trainer, $100K+ budgets</div>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-avatar">OR</div>
+                        <div class="team-name">Oscar Rivas</div>
+                        <div class="team-role">CTO & Co-founder<br>Torre AI systems, 100K+ daily processing</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Section -->
+            <div class="bottom-section">
+                <!-- Product Demo & Business Model -->
+                <div class="section">
+                    <div class="section-title">
+                        <svg class="icon" viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        From Demo to Domination
+                    </div>
+                    <div class="section-content">
+                        <ul class="bullet-points">
+                            <li><strong>Working AI:</strong> Real customer conversations → custom designs in 8 seconds</li>
+                            <li><strong>Unit Economics:</strong> 150-168 PEN AOV, 34% gross margin, 2.3+ orders break-even</li>
+                            <li><strong>Growth Strategy:</strong> 25% monthly growth through Meta ads + viral AI content</li>
+                            <li><strong>Roadmap:</strong> Flowers → Gifts → LatAm platform → Global licensing</li>
+                            <li><strong>Funding:</strong> $200K for tech (50%), growth (30%), team (20%)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="contact-info">
+                    <div class="contact-title">Join the AI Commerce Revolution</div>
+                    <div class="contact-details">
+                        <strong>Florece.ai Team</strong><br>
+                        Luis, Omar & Oscar<br><br>
+                        📧 founder@florece.ai<br>
+                        📱 +51 XXX XXX XXX<br>
+                        🌐 www.florece.ai<br><br>
+                        <strong>Series Pre-Seed:</strong> $200K for 7%<br>
+                        <strong>Valuation:</strong> $2.8M pre-money<br>
+                        <strong>Goal:</strong> Lead LatAm personalization
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Version 3.0 -->
+
+    <script>
+        // Function to get URL parameters
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
+
+        // Function to update URL without page reload
+        function updateUrl(version) {
+            const url = new URL(window.location);
+            url.searchParams.set('version', version);
+            window.history.replaceState({}, '', url);
+        }
+
+        // Function to switch versions
+        function switchVersion(version) {
+            // Hide all version contents
+            const versionContents = document.querySelectorAll('.version-content');
+            versionContents.forEach(content => {
+                content.style.display = 'none';
+            });
+            
+            // Show selected version
+            const selectedContent = document.getElementById('version-' + version);
+            if (selectedContent) {
+                selectedContent.style.display = 'block';
+            }
+
+            // Update dropdown
+            const dropdown = document.getElementById('versionSelect');
+            dropdown.value = version;
+
+            // Update URL
+            updateUrl(version);
+        }
+
+        // Version switching functionality
+        document.getElementById('versionSelect').addEventListener('change', function() {
+            const selectedVersion = this.value;
+            switchVersion(selectedVersion);
+        });
+
+        // Initialize - check URL parameter or default to v3.0
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlVersion = getUrlParameter('version');
+            const defaultVersion = 'v3.0';
+            
+            // Validate version exists
+            const validVersions = ['v2.0', 'v3.0'];
+            const initialVersion = validVersions.includes(urlVersion) ? urlVersion : 'v3.0';
+            
+            switchVersion(initialVersion);
+        });
+    </script>
 </body>
-</html> 
+</html>
