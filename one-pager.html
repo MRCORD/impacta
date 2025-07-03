@@ -11,9 +11,13 @@
             padding: 20px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
+        }
+
+        .content-container {
             display: flex;
             align-items: center;
             justify-content: center;
+            min-height: calc(100vh - 40px);
         }
 
         .navigation {
@@ -299,6 +303,13 @@
             margin-top: 30px;
         }
 
+        .bottom-section-three-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
         .contact-info {
             background: #2c3e50;
             color: white;
@@ -380,304 +391,306 @@
         </div>
     </div>
 
-    <!-- Version 2.0 Content -->
-    <div class="version-content" id="version-v2.0">
-        <div class="page">
-            <!-- Header -->
-        <div class="header">
-            <div class="logo">
-                <img src="https://florece.ai/florece-light.svg" alt="Florece.ai Logo">
-            </div>
-            <div class="tagline">AI-Powered Mass Personalization Starts With Flowers</div>
-            <div class="subtitle">We built Florece.ai because buying flowers shouldn't mean settling for generic arrangements</div>
-        </div>
-
-        <!-- Vision Statement -->
-        <div class="highlight-box">
-            <div class="highlight-number">$35B</div>
-            <div class="highlight-text">Global flower industry stuck in the past<br>Every customer gets exactly what they want, not what's available</div>
-        </div>
-
-        <!-- Main Content Grid -->
-        <div class="content-grid">
-            <!-- Problem & Solution -->
-            <div class="section">
-                <div class="section-title">
-                    <svg class="icon" viewBox="0 0 24 24">
-                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                    </svg>
-                    The Problem
-                </div>
-                <div class="section-content">
-                    <ul class="bullet-points">
-                        <li>Customers forced to choose from generic catalogs that don't match their emotions</li>
-                        <li>Flowers are deeply personal expressions, yet options are completely impersonal</li>
-                        <li>Younger consumers expect personalization, but flower industry hasn't evolved</li>
-                        <li>Current process: Browse → Settle → Disappoint</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Our Solution -->
-            <div class="section">
-                <div class="section-title">
-                    <svg class="icon" viewBox="0 0 24 24">
-                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
-                    Our Solution
-                </div>
-                <div class="section-content">
-                    <ul class="bullet-points">
-                        <li>Conversational AI creates completely unique arrangements in real-time</li>
-                        <li>Customer describes their needs, emotions, and occasion to our AI</li>
-                        <li>No catalogs to browse, no settling for "close enough"</li>
-                        <li>Every arrangement is one-of-a-kind, delivered fresh in Peru</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Market Opportunity -->
-            <div class="section">
-                <div class="section-title">
-                    <svg class="icon" viewBox="0 0 24 24">
-                        <path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
-                    </svg>
-                    Market Opportunity
-                </div>
-                <div class="section-content">
-                    <ul class="bullet-points">
-                        <li><strong>TAM:</strong> $35B global flower industry</li>
-                        <li><strong>SAM:</strong> $2.1B Latin America flower market</li>
-                        <li><strong>SOM:</strong> $180M Peru online flower market</li>
-                        <li>Perfect first use case: emotional purchases where AI excels</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Competitive Advantage -->
-            <div class="section">
-                <div class="section-title">
-                    <svg class="icon" viewBox="0 0 24 24">
-                        <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-                    </svg>
-                    Our Edge
-                </div>
-                <div class="section-content">
-                    <ul class="bullet-points">
-                        <li>First-to-market with AI-powered mass customization for flowers</li>
-                        <li>World-class team: ex-Torre, fintech scale, Meta advertising expertise</li>
-                        <li>Proven unit economics: 38.6% gross margins, 14-month breakeven</li>
-                        <li>Extremely capital efficient: Only $22K needed to reach profitability</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- Key Metrics -->
-        <div class="metrics-row">
-            <div class="metric">
-                <div class="metric-number">Month 14</div>
-                <div class="metric-label">Path to Profitability</div>
-            </div>
-            <div class="metric">
-                <div class="metric-number">$22K</div>
-                <div class="metric-label">Capital to Break-Even</div>
-            </div>
-            <div class="metric">
-                <div class="metric-number">38.6%</div>
-                <div class="metric-label">Gross Margins</div>
-            </div>
-            <div class="metric">
-                <div class="metric-number">150-168</div>
-                <div class="metric-label">PEN AOV</div>
-            </div>
-        </div>
-
-        <!-- Team Section -->
-        <div class="section">
-            <div class="section-title">
-                <svg class="icon" viewBox="0 0 24 24">
-                    <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
-                </svg>
-                World-Class Team
-            </div>
-                            <div class="team-section">
-                    <div class="team-member">
-                        <img src="https://media.licdn.com/dms/image/v2/D4E03AQHULNXdfuib9w/profile-displayphoto-scale_400_400/B4EZefOQKmGcAo-/0/1750723004607?e=1756944000&v=beta&t=JiLFPnKGAfzAcfefZBwQ8GJlfPPednAyOfNE8j3KfVY" alt="Luis Huayaney" class="team-photo">
-                        <div class="team-name">Luis Huayaney</div>
-                        <div class="team-role">CEO & Co-founder<br>5+ yrs IBK/Mibanco, 2M+ customers</div>
+    <div class="content-container">
+        <!-- Version 2.0 Content -->
+        <div class="version-content" id="version-v2.0">
+            <div class="page">
+                <!-- Header -->
+                <div class="header">
+                    <div class="logo">
+                        <img src="https://florece.ai/florece-light.svg" alt="Florece.ai Logo">
                     </div>
-                <div class="team-member">
-                    <div class="team-avatar">OM</div>
-                    <div class="team-name">Omar Mendoza</div>
-                    <div class="team-role">CMO & Co-founder<br>Meta Ads Lead Trainer, $100K+ budgets</div>
+                    <div class="tagline">AI-Powered Mass Personalization Starts With Flowers</div>
+                    <div class="subtitle">We built Florece.ai because buying flowers shouldn't mean settling for generic arrangements</div>
                 </div>
-                <div class="team-member">
-                    <div class="team-avatar">OR</div>
-                    <div class="team-name">Oscar Rivas</div>
-                    <div class="team-role">CTO & Co-founder<br>Ex-Torre, 6+ yrs AI/Engineering</div>
-                </div>
-            </div>
-        </div>
 
-        <!-- Bottom Section -->
-        <div class="bottom-section">
-            <!-- Business Model & Traction -->
-            <div class="section">
-                <div class="section-title">
-                    <svg class="icon" viewBox="0 0 24 24">
-                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                    </svg>
-                    Business Model & Traction
+                <!-- Vision Statement -->
+                <div class="highlight-box">
+                    <div class="highlight-number">$35B</div>
+                    <div class="highlight-text">Global flower industry stuck in the past<br>Every customer gets exactly what they want, not what's available</div>
                 </div>
-                <div class="section-content">
-                    <ul class="bullet-points">
-                        <li><strong>Revenue Model:</strong> Direct sales of personalized flower arrangements</li>
-                        <li><strong>Current Metrics:</strong> Starting 20 orders/month, targeting 25% growth</li>
-                        <li><strong>Unit Economics:</strong> 150-168 PEN AOV, ~61 PEN contribution margin</li>
-                        <li><strong>Capital Efficiency:</strong> Only $22K needed to reach break-even</li>
-                        <li><strong>Funding:</strong> Raising $200K for 7% equity ($2.8M valuation)</li>
-                    </ul>
+
+                <!-- Main Content Grid -->
+                <div class="content-grid">
+                    <!-- Problem & Solution -->
+                    <div class="section">
+                        <div class="section-title">
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                            The Problem
+                        </div>
+                        <div class="section-content">
+                            <ul class="bullet-points">
+                                <li>Customers forced to choose from generic catalogs that don't match their emotions</li>
+                                <li>Flowers are deeply personal expressions, yet options are completely impersonal</li>
+                                <li>Younger consumers expect personalization, but flower industry hasn't evolved</li>
+                                <li>Current process: Browse → Settle → Disappoint</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Our Solution -->
+                    <div class="section">
+                        <div class="section-title">
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            Our Solution
+                        </div>
+                        <div class="section-content">
+                            <ul class="bullet-points">
+                                <li>Conversational AI creates completely unique arrangements in real-time</li>
+                                <li>Customer describes their needs, emotions, and occasion to our AI</li>
+                                <li>No catalogs to browse, no settling for "close enough"</li>
+                                <li>Every arrangement is one-of-a-kind, delivered fresh in Peru</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Market Opportunity -->
+                    <div class="section">
+                        <div class="section-title">
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                            </svg>
+                            Market Opportunity
+                        </div>
+                        <div class="section-content">
+                            <ul class="bullet-points">
+                                <li><strong>TAM:</strong> $35B global flower industry</li>
+                                <li><strong>SAM:</strong> $2.1B Latin America flower market</li>
+                                <li><strong>SOM:</strong> $180M Peru online flower market</li>
+                                <li>Perfect first use case: emotional purchases where AI excels</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Competitive Advantage -->
+                    <div class="section">
+                        <div class="section-title">
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                            </svg>
+                            Our Edge
+                        </div>
+                        <div class="section-content">
+                            <ul class="bullet-points">
+                                <li>First-to-market with AI-powered mass customization for flowers</li>
+                                <li>World-class team: ex-Torre, fintech scale, Meta advertising expertise</li>
+                                <li>Proven unit economics: 38.6% gross margins, 14-month breakeven</li>
+                                <li>Extremely capital efficient: Only $22K needed to reach profitability</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Contact Information -->
-            <div class="contact-info">
-                <div class="contact-title">Ready to Revolutionize Commerce?</div>
-                <div class="contact-details">
-                    <strong>Florece.ai Founding Team</strong><br>
-                    Luis, Omar & Oscar<br><br>
-                    📧 founder@florece.ai<br>
-                    📱 +51 XXX XXX XXX<br>
-                    🌐 www.florece.ai<br><br>
-                    <strong>Seeking:</strong> $200K for 7% equity<br>
-                    <strong>Valuation:</strong> $2.8M pre-money
+                <!-- Key Metrics -->
+                <div class="metrics-row">
+                    <div class="metric">
+                        <div class="metric-number">Month 14</div>
+                        <div class="metric-label">Path to Profitability</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-number">$22K</div>
+                        <div class="metric-label">Capital to Break-Even</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-number">38.6%</div>
+                        <div class="metric-label">Gross Margins</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-number">150-168</div>
+                        <div class="metric-label">PEN AOV</div>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Version 2.0 -->
 
-    <!-- Version 3.0 Content -->
-    <div class="version-content active" id="version-v3.0">
-        <div class="page">
-            <!-- Header -->
-            <div class="header">
-                <div class="logo">
-                    <img src="https://florece.ai/florece-light.svg" alt="Florece.ai Logo">
-                </div>
-                <div class="tagline">The Future of Commerce is Personal</div>
-                <div class="subtitle">AI-Powered Mass Personalization Starts With Flowers</div>
-            </div>
-
-            <!-- Vision Statement -->
-            <div class="highlight-box">
-                <div class="highlight-number">$200K for 7% equity</div>
-                <div class="highlight-text">The Future of Commerce is Personal<br>14 months to break-even • $23K capital needed • Infinite personalization</div>
-            </div>
-
-            <!-- Main Content Grid -->
-            <div class="content-grid">
-                <!-- Problem & Solution -->
+                <!-- Team Section -->
                 <div class="section">
                     <div class="section-title">
                         <svg class="icon" viewBox="0 0 24 24">
-                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
                         </svg>
-                        Catalog Prison Problem
+                        World-Class Team
                     </div>
-                    <div class="section-content">
-                        <ul class="bullet-points">
-                            <li><strong>$35B industry forces generic choices:</strong> 15-20 pre-made arrangements that rarely match emotions</li>
-                            <li><strong>Emotional mismatch:</strong> Most personal gifts treated like commodities</li>
-                            <li><strong>Tech desert:</strong> While AI transforms everything, flowers stuck in 1990s catalogs</li>
-                            <li><strong>Current process:</strong> Browse limited options → Settle for "close enough" → Disappoint</li>
-                        </ul>
+                    <div class="team-section">
+                        <div class="team-member">
+                            <img src="https://media.licdn.com/dms/image/v2/D4E03AQHULNXdfuib9w/profile-displayphoto-scale_400_400/B4EZefOQKmGcAo-/0/1750723004607?e=1756944000&v=beta&t=JiLFPnKGAfzAcfefZBwQ8GJlfPPednAyOfNE8j3KfVY" alt="Luis Huayaney" class="team-photo">
+                            <div class="team-name">Luis Huayaney</div>
+                            <div class="team-role">CEO & Co-founder<br>5+ yrs IBK/Mibanco, 2M+ customers</div>
+                        </div>
+                        <div class="team-member">
+                            <div class="team-avatar">OM</div>
+                            <div class="team-name">Omar Mendoza</div>
+                            <div class="team-role">CMO & Co-founder<br>Meta Ads Lead Trainer, $100K+ budgets</div>
+                        </div>
+                        <div class="team-member">
+                            <div class="team-avatar">OR</div>
+                            <div class="team-name">Oscar Rivas</div>
+                            <div class="team-role">CTO & Co-founder<br>Ex-Torre, 6+ yrs AI/Engineering</div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- AI Solution -->
-                <div class="section">
-                    <div class="section-title">
-                        <svg class="icon" viewBox="0 0 24 24">
-                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
-                        AI Creates Infinite Arrangements
+                <!-- Bottom Section -->
+                <div class="bottom-section">
+                    <!-- Business Model & Traction -->
+                    <div class="section">
+                        <div class="section-title">
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                            Business Model & Traction
+                        </div>
+                        <div class="section-content">
+                            <ul class="bullet-points">
+                                <li><strong>Revenue Model:</strong> Direct sales of personalized flower arrangements</li>
+                                <li><strong>Current Metrics:</strong> Starting 20 orders/month, targeting 25% growth</li>
+                                <li><strong>Unit Economics:</strong> 150-168 PEN AOV, ~61 PEN contribution margin</li>
+                                <li><strong>Capital Efficiency:</strong> Only $22K needed to reach break-even</li>
+                                <li><strong>Funding:</strong> Raising $200K for 7% equity ($2.8M valuation)</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="section-content">
-                        <ul class="bullet-points">
-                            <li><strong>Conversation → AI Magic → Visual Preview → Delivery:</strong> Real-time custom designs</li>
-                            <li><strong>Zero catalogs:</strong> No browsing, no scrolling, no settling</li>
-                            <li><strong>Perfect emotional match:</strong> AI understands feelings, not just keywords</li>
-                            <li><strong>Infinite variety:</strong> Never the same design twice, perfectly scalable</li>
-                        </ul>
-                    </div>
-                </div>
 
-                <!-- Market Opportunity -->
-                <div class="section">
-                    <div class="section-title">
-                        <svg class="icon" viewBox="0 0 24 24">
-                            <path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
-                        </svg>
-                        Massive Market, Perfect Timing
-                    </div>
-                    <div class="section-content">
-                        <ul class="bullet-points">
-                            <li><strong>TAM:</strong> $35B global flower industry ready for AI disruption</li>
-                            <li><strong>SAM:</strong> $2.1B Latin America underserved by AI innovation</li>
-                            <li><strong>SOM:</strong> $180M Peru online market, first-mover advantage</li>
-                            <li><strong>Why Now:</strong> AI maturity + personalization demand + post-COVID online shift</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Competitive Advantage -->
-                <div class="section">
-                    <div class="section-title">
-                        <svg class="icon" viewBox="0 0 24 24">
-                            <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-                        </svg>
-                        Unfair Advantages
-                    </div>
-                    <div class="section-content">
-                        <ul class="bullet-points">
-                            <li><strong>AI-native platform:</strong> Built for personalization from ground up, not retrofitted</li>
-                            <li><strong>World-class team:</strong> 2M+ customer banking experience + Torre AI systems + Meta mastery</li>
-                            <li><strong>LatAm first-mover:</strong> No AI competition in region, cultural understanding</li>
-                            <li><strong>Capital efficiency:</strong> 14 months to break-even vs. heavy infrastructure competitors</li>
-                        </ul>
+                    <!-- Contact Information -->
+                    <div class="contact-info">
+                        <div class="contact-title">Ready to Revolutionize Commerce?</div>
+                        <div class="contact-details">
+                            <strong>Florece.ai Founding Team</strong><br>
+                            Luis, Omar & Oscar<br><br>
+                            📧 founder@florece.ai<br>
+                            📱 +51 XXX XXX XXX<br>
+                            🌐 www.florece.ai<br><br>
+                            <strong>Seeking:</strong> $200K for 7% equity<br>
+                            <strong>Valuation:</strong> $2.8M pre-money
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
+        <!-- End Version 2.0 -->
 
-            <!-- Key Metrics -->
-            <div class="metrics-row">
-                <div class="metric">
-                    <div class="metric-number">14 Months</div>
-                    <div class="metric-label">To Break-Even</div>
+        <!-- Version 3.0 Content -->
+        <div class="version-content active" id="version-v3.0">
+            <div class="page">
+                <!-- Header -->
+                <div class="header">
+                    <div class="logo">
+                        <img src="https://florece.ai/florece-light.svg" alt="Florece.ai Logo">
+                    </div>
+                    <div class="tagline">The Future of Commerce is Personal</div>
+                    <div class="subtitle">AI-Powered Mass Personalization Starts With Flowers</div>
                 </div>
-                <div class="metric">
-                    <div class="metric-number">$23K</div>
-                    <div class="metric-label">Capital Needed</div>
-                </div>
-                <div class="metric">
-                    <div class="metric-number">34%</div>
-                    <div class="metric-label">Gross Margins</div>
-                </div>
-                <div class="metric">
-                    <div class="metric-number">∞</div>
-                    <div class="metric-label">Arrangements Possible</div>
-                </div>
-            </div>
 
-            <!-- Team Section -->
-            <div class="section">
-                <div class="section-title">
-                    <svg class="icon" viewBox="0 0 24 24">
-                        <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
-                    </svg>
-                    Elite Team + Network
+                <!-- Vision Statement -->
+                <div class="highlight-box">
+                    <div class="highlight-number">$200K for 7% equity</div>
+                    <div class="highlight-text">The Future of Commerce is Personal<br>14 months to break-even • $23K capital needed • Infinite personalization</div>
+                </div>
+
+                <!-- Main Content Grid -->
+                <div class="content-grid">
+                    <!-- Problem & Solution -->
+                    <div class="section">
+                        <div class="section-title">
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                            Catalog Prison Problem
+                        </div>
+                        <div class="section-content">
+                            <ul class="bullet-points">
+                                <li><strong>$35B industry forces generic choices:</strong> 15-20 pre-made arrangements that rarely match emotions</li>
+                                <li><strong>Emotional mismatch:</strong> Most personal gifts treated like commodities</li>
+                                <li><strong>Tech desert:</strong> While AI transforms everything, flowers stuck in 1990s catalogs</li>
+                                <li><strong>Current process:</strong> Browse limited options → Settle for "close enough" → Disappoint</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- AI Solution -->
+                    <div class="section">
+                        <div class="section-title">
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            AI Creates Infinite Arrangements
+                        </div>
+                        <div class="section-content">
+                            <ul class="bullet-points">
+                                <li><strong>Conversation → AI Magic → Visual Preview → Delivery:</strong> Real-time custom designs</li>
+                                <li><strong>Zero catalogs:</strong> No browsing, no scrolling, no settling</li>
+                                <li><strong>Perfect emotional match:</strong> AI understands feelings, not just keywords</li>
+                                <li><strong>Infinite variety:</strong> Never the same design twice, perfectly scalable</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Market Opportunity -->
+                    <div class="section">
+                        <div class="section-title">
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                            </svg>
+                            Massive Market, Perfect Timing
+                        </div>
+                        <div class="section-content">
+                            <ul class="bullet-points">
+                                <li><strong>TAM:</strong> $35B global flower industry ready for AI disruption</li>
+                                <li><strong>SAM:</strong> $2.1B Latin America underserved by AI innovation</li>
+                                <li><strong>SOM:</strong> $180M Peru online market, first-mover advantage</li>
+                                <li><strong>Why Now:</strong> AI maturity + personalization demand + post-COVID online shift</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Competitive Advantage -->
+                    <div class="section">
+                        <div class="section-title">
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                            </svg>
+                            Unfair Advantages
+                        </div>
+                        <div class="section-content">
+                            <ul class="bullet-points">
+                                <li><strong>AI-native platform:</strong> Built for personalization from ground up, not retrofitted</li>
+                                <li><strong>World-class team:</strong> 2M+ customer banking experience + Torre AI systems + Meta mastery</li>
+                                <li><strong>LatAm first-mover:</strong> No AI competition in region, cultural understanding</li>
+                                <li><strong>Capital efficiency:</strong> 14 months to break-even vs. heavy infrastructure competitors</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Key Metrics -->
+                <div class="metrics-row">
+                    <div class="metric">
+                        <div class="metric-number">14 Months</div>
+                        <div class="metric-label">To Break-Even</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-number">$23K</div>
+                        <div class="metric-label">Capital Needed</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-number">34%</div>
+                        <div class="metric-label">Gross Margins</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-number">∞</div>
+                        <div class="metric-label">Arrangements Possible</div>
+                    </div>
+                </div>
+
+                <!-- Team Section -->
+                <div class="section">
+                    <div class="section-title">
+                        <svg class="icon" viewBox="0 0 24 24">
+                            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+                        </svg>
+                                            Elite Team + Network
                 </div>
                 <div class="team-section">
                     <div class="team-member">
@@ -699,63 +712,64 @@
             </div>
 
             <!-- Bottom Section -->
-            <div class="bottom-section">
-                <!-- Product Demo & Business Model -->
-                <div class="section">
-                    <div class="section-title">
-                        <svg class="icon" viewBox="0 0 24 24">
-                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                        </svg>
-                        From Demo to Domination
+            <div class="bottom-section-three-col">
+                    <!-- Product Demo & Business Model -->
+                    <div class="section">
+                        <div class="section-title">
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                            From Demo to Domination
+                        </div>
+                        <div class="section-content">
+                            <ul class="bullet-points">
+                                <li><strong>Working AI:</strong> Real customer conversations → custom designs in 8 seconds</li>
+                                <li><strong>Unit Economics:</strong> 150-168 PEN AOV, 34% gross margin, 2.3+ orders break-even</li>
+                                <li><strong>Growth Strategy:</strong> 25% monthly growth through Meta ads + viral AI content</li>
+                                <li><strong>Roadmap:</strong> Flowers → Gifts → LatAm platform → Global licensing</li>
+                                <li><strong>Funding:</strong> $200K for tech (50%), growth (30%), team (20%)</li>
+                                <li><strong>Two-Sided Model:</strong> Empowering local florists to compete with big brands through AI-powered personalization and perfect price matching</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="section-content">
-                        <ul class="bullet-points">
-                            <li><strong>Working AI:</strong> Real customer conversations → custom designs in 8 seconds</li>
-                            <li><strong>Unit Economics:</strong> 150-168 PEN AOV, 34% gross margin, 2.3+ orders break-even</li>
-                            <li><strong>Growth Strategy:</strong> 25% monthly growth through Meta ads + viral AI content</li>
-                            <li><strong>Roadmap:</strong> Flowers → Gifts → LatAm platform → Global licensing</li>
-                                                         <li><strong>Funding:</strong> $200K for tech (50%), growth (30%), team (20%)</li>
-                             <li><strong>Two-Sided Model:</strong> Empowering local florists to compete with big brands through AI-powered personalization and perfect price matching</li>
-                        </ul>
-                    </div>
-                </div>
 
-                <!-- Two-Sided Marketplace Value -->
-                <div class="section">
-                    <div class="section-title">
-                        <svg class="icon" viewBox="0 0 24 24">
-                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                        </svg>
-                        Democratizing Premium Floristry
+                    <!-- Two-Sided Marketplace Value -->
+                    <div class="section">
+                        <div class="section-title">
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                            Democratizing Premium Floristry
+                        </div>
+                        <div class="section-content">
+                            <ul class="bullet-points">
+                                <li><strong>Local Florists Win:</strong> AI-powered premium service lets mom & pops compete with boutiques</li>
+                                <li><strong>Perfect Price Matching:</strong> AI assesses customer budgets and matches with appropriate artisans</li>
+                                <li><strong>Customer Value:</strong> Best quality at every price point from vetted local craftspeople</li>
+                                <li><strong>Market Impact:</strong> Big brands lose pricing power as personalization becomes accessible</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="section-content">
-                        <ul class="bullet-points">
-                            <li><strong>Local Florists Win:</strong> AI-powered premium service lets mom & pops compete with boutiques</li>
-                            <li><strong>Perfect Price Matching:</strong> AI assesses customer budgets and matches with appropriate artisans</li>
-                            <li><strong>Customer Value:</strong> Best quality at every price point from vetted local craftspeople</li>
-                            <li><strong>Market Impact:</strong> Big brands lose pricing power as personalization becomes accessible</li>
-                        </ul>
-                    </div>
-                </div>
 
-                <!-- Contact Information -->
-                <div class="contact-info">
-                    <div class="contact-title">Join the AI Commerce Revolution</div>
-                    <div class="contact-details">
-                        <strong>Florece.ai Team</strong><br>
-                        Luis, Omar & Oscar<br><br>
-                        📧 founder@florece.ai<br>
-                        📱 +51 XXX XXX XXX<br>
-                        🌐 www.florece.ai<br><br>
-                        <strong>Series Pre-Seed:</strong> $200K for 7%<br>
-                        <strong>Valuation:</strong> $2.8M pre-money<br>
-                        <strong>Goal:</strong> Lead LatAm personalization
+                    <!-- Contact Information -->
+                    <div class="contact-info">
+                        <div class="contact-title">Join the AI Commerce Revolution</div>
+                        <div class="contact-details">
+                            <strong>Florece.ai Team</strong><br>
+                            Luis, Omar & Oscar<br><br>
+                            📧 founder@florece.ai<br>
+                            📱 +51 XXX XXX XXX<br>
+                            🌐 www.florece.ai<br><br>
+                            <strong>Series Pre-Seed:</strong> $200K for 7%<br>
+                            <strong>Valuation:</strong> $2.8M pre-money<br>
+                            <strong>Goal:</strong> Lead LatAm personalization
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        <!-- End Version 3.0 -->
     </div>
-    <!-- End Version 3.0 -->
 
     <script>
         // Function to get URL parameters
@@ -778,13 +792,13 @@
             // Hide all version contents
             const versionContents = document.querySelectorAll('.version-content');
             versionContents.forEach(content => {
-                content.style.display = 'none';
+                content.classList.remove('active');
             });
             
             // Show selected version
             const selectedContent = document.getElementById('version-' + version);
             if (selectedContent) {
-                selectedContent.style.display = 'block';
+                selectedContent.classList.add('active');
             }
 
             // Update dropdown
@@ -808,7 +822,7 @@
             
             // Validate version exists
             const validVersions = ['v2.0', 'v3.0'];
-            const initialVersion = validVersions.includes(urlVersion) ? urlVersion : 'v3.0';
+            const initialVersion = validVersions.includes(urlVersion) ? urlVersion : defaultVersion;
             
             switchVersion(initialVersion);
         });
